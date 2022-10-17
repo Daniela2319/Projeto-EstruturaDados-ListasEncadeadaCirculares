@@ -28,12 +28,12 @@ public class ListasCirculares<T> {
      */
     public void add(T conteudo){
         No<T> novoNo = new No<>(conteudo); //declara novoNo
-        if (this.tamanhoLista == 0){       // teste se a lista está vazia
+        if (this.tamanhoLista == 0){       // testa se a lista está vazia
             this.cabeca = novoNo;         // cabeça recebe novoNo
             this.cauda = this.cabeca;      // cauda recebe cabeça como referência
             this.cabeca.setNoProximo(cauda); // set aqui cabeça ser referência de proximo nó para a cauda
         }else {
-            novoNo.setNoProximo(this.cauda); // se não novoNo vou set proximo nó cauda, novoNo está atras da cauda
+            novoNo.setNoProximo(this.cauda); // se não novoNo da set proximo nó cauda, novoNo está atras da cauda
             this.cabeca.setNoProximo(novoNo); // agora cabeça aponta novoNo é atual cauda
             this.cauda = novoNo;              // referência de cauda da lista circular agora é novoNo
         }
@@ -45,18 +45,18 @@ public class ListasCirculares<T> {
      * @param index
      */
     public void remove(int index){
-        if(index >= this.tamanhoLista) //Testar se índice é maior que o tamanho da lista
+        if(index >= this.tamanhoLista) //testa se índice é maior que o tamanho da lista
             throw new IndexOutOfBoundsException("O índice é maior que o tamanho da lista"); // Caso for maior solta exception
-        No<T> noAuxiliar = this.cauda; // Caso contrario usar a lógica de remoção do nó da lista
-        if (index == 0){               //Testo nó quero remove é propria cauda
-            this.cauda = this.cauda.getNoProximo(); // se índice for igual a zero pega nó da cauda e jogar pra ela proximo nó da cauda.
-            this.cabeca.setNoProximo(this.cauda);  // como ainda a nossa cabeça está com referência da antiga cauda, set para cauda atual.
+        No<T> noAuxiliar = this.cauda; // caso contrario usar a lógica de remoção do nó da lista
+        if (index == 0){               //testa se nó para remove a propria cauda
+            this.cauda = this.cauda.getNoProximo(); // se índice for igual a zero pega nó da cauda e adiciona no proximo nó da cauda
+            this.cabeca.setNoProximo(this.cauda);  // como ainda a nossa cabeça está com referência da antiga cauda, set para cauda atual
         } else if (index == 1) {                  // se não tiver no índice zero, teste índice um
             this.cauda.setNoProximo(this.cauda.getNoProximo().getNoProximo()); // remove o índice um, fazendo cauda índice zero pula para cauda indice 2
 
         }else{                                   // se índice não for zero e nem um,
-            for (int i = 0; i < index-1; i++){  // usa for para correr esta lista até encontra esse índice.
-                noAuxiliar = noAuxiliar.getNoProximo(); // encontra o nó sera removido
+            for (int i = 0; i < index-1; i++){  // utilizar for para correr esta lista até encontra esse índice.
+                noAuxiliar = noAuxiliar.getNoProximo(); // encontra o nó será removido
             }
             noAuxiliar.setNoProximo(noAuxiliar.getNoProximo().getNoProximo()); // excluir nó índice 1, correndo no índice anterior , fazendo referência para proximo índice.
         }
@@ -79,7 +79,7 @@ public class ListasCirculares<T> {
 
     /**
      * Método getNo
-     * esse método para fazer teste se a lista está vazia, indice igual a zero
+     * esse método para fazer testa se a lista está vazia, indice igual a zero
      * e loop infinito que circula na lista.
       * @param index recebe indíce
      * @return noAuxiliar
@@ -87,7 +87,7 @@ public class ListasCirculares<T> {
      */
 
 private No<T> getNo(int index){
-    if (this.isEmpty()) // teste se a lista está vazia
+    if (this.isEmpty()) // testa se a lista está vazia
         throw new IndexOutOfBoundsException("A lista está vazia");
     if (index == 0){ // caso a lista não esteja vazia
         return this.cauda; // se indice passar a zero retorna cauda

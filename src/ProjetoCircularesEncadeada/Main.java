@@ -26,11 +26,11 @@ public class Main {
         minhalistaCircular.add("d3");
         System.out.println(minhalistaCircular);
 
-// seleciona elemento no índice
+// seleciona elemento do índice
         System.out.println(minhalistaCircular.get(0));
         System.out.println(minhalistaCircular.get(1));
         System.out.println(minhalistaCircular.get(2));
-        System.out.println(minhalistaCircular.get(3)); // retorna inicio da lista
+        System.out.println(minhalistaCircular.get(3));
         System.out.println(minhalistaCircular.get(4));
 
 
