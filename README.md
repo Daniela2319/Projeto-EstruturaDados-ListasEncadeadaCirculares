@@ -19,6 +19,8 @@ Implementado os Métodos:
 * .isEmpty (Verifica se a lista esta vazia)
 * .size (Tamanho da lista)
 
+👩‍🎓 Estudos e Pesquisas Daniela Velter
+
 
 
 
