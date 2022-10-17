@@ -23,7 +23,7 @@ public class ListasCirculares<T> {
     }
 
     /**
-     * Método add (adiciona)
+     * Método add (adiciona) o nó na lista.
      * @param conteudo
      */
     public void add(T conteudo){
@@ -68,6 +68,7 @@ public class ListasCirculares<T> {
 
     /**
      * Método get
+     * seleciona o índice escolhido do elemento
      * @param index
      * @return contéudo
      */
@@ -116,5 +117,24 @@ private No<T> getNo(int index){
      */
     public int size(){
         return this.tamanhoLista;
+    }
+
+    /**
+     * Método toString
+     * Tamanho da lista
+     * @return
+     */
+    @Override
+    public String toString() {
+       String strRetorno = " "; // declara uma variável começa vazia
+
+       No<T> noAuxiliar = this.cauda; // declara um nó noAuxiliar vai receber a cauda, noAuxilia vai entrar pela cauda.
+       for (int i = 0; i < this.size(); i++){ //for para correr a lista
+           strRetorno += "[No{conteudo=" + noAuxiliar.getConteudo() + "}]---->";
+           noAuxiliar = noAuxiliar.getNoProximo();
+       }
+       strRetorno += this.size() != 0 ? "(Retorna ao inicio)" : "[]"; // Se caso a lista tiver vazia
+
+        return strRetorno; // variável retorna
     }
 }
